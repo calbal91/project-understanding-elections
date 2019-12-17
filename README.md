@@ -1,2 +1,77 @@
-# dsc-mod-5-project-online
-A repository for the Flatiron Module 5 project
+# Predicting The 2019 UK General Election
+
+The recent turbulence in UK politics has been well documented. The results of the last two General Elections in 2015 and 2017 produced unexpected results, and a great deal of uncertainty surrounds the result of the 2019 vote.
+
+The aim of this analysis is to consider the attributes of UK parliamentary constituencies, and discover which characteristics play the greatest role in determining who people vote for.
+
+This has implications for how parties should campaign to maximise their vote share. For example, we could predict which messages may prove most effective in different parts of the country. We could also predict which constituencies have the highest propensity to 'flip' from one party to another, allowing parties to target resources more effectively.
+
+Some basic facts about the country's political systems will be helpful in understanding this project.
+
+
+## The House of Commons & The UK's Electoral System
+
+Though the United Kingdom is notionally a monarchy, with a King or Queen as the head of state, the 'House of Commons' is where political power in the UK generally lies.
+
+The House of Commons, or 'Parliament', is comprised of 650 Members of Parliament, or 'MPs'. Each of these MPs represent a parliamentary 'Constituency' - a pre-defined geographic area of the country. During a general election, a selection of candidates will stand in each constituency. Each elector who lives in that constituency votes for one candidate, and the candidate who receives the most votes becomes the MP of that constituency, taking one of the 650 seats in parliament.
+
+Each candidate will typically be allied to a single political party (see below). The party that wins the most seats wins the election overall, and has the chance to form a government. The leader of the winning party (who is also an MP) typically becomes Prime Minister.
+
+This voting system is known as 'First Past The Post' (FPTP). Though touted as a system that generally produces strong, stable governments, it can result in a significant misalingment between the national share of votes that a party receives, and the share seats in Parliament that it wins. Suppose that five parties stand in each constituency. Then theoretically a party could win all of the seats in Parliament with just 20.1% of the vote (if the other four all get 19%-20%).
+
+This is an extreme example, though in 2015 The Conservative Party managed to win more than half the seats with just 37% of the popular vote. On the other end of the spectrum, UKIP won just one seat with 13% of the national vote. Indeed, the UK's FPTP electoral system makes it very difficult for smaller parties to win seats in general elections. This has resulted in a two-party hegemony for nearly a century - every election since 1922 has either been won by the Conservative Party or the Labour Party.
+
+
+
+## The UK's Political Parties
+
+### The Conservative Party
+Also known as the 'Tories', the Conservative Party are right-leaning, both economically and socially, and are traditionally the party of the middle and upper classes.
+
+Their most famous Prime Ministers include Margaret Thatcher, who oversaw substantial de-regulation of the country's financial sector, and Winston Churchill, who led the government of national unity during WW2. More recently David Cameron sought to de-toxify the party's image through moves towards social liberalism (for example, the legalisaiton of same-sex marriage).
+
+### The Labour Party
+Traditionally the party of the Trade Union movement, with left-leaning views on economic affairs and social justice. Their achievements in office include the founding of the country's National Health Service in 1948.
+
+The Labour Party had greatest electoral success under Tony Blair in the 1990s and 2000s, where it moved to a more economically centrist position (the party re-branded itself as 'New Labour' during this time).
+
+### The Liberal Democrats
+AKA the 'Lib Dems'. The party was the result of a merger between the Liberal Party, who enjoyed wide electoral success in the 19th and early 20th Century, and the Social Democratic Party (who were themselves a group that splintered from the Labour Party in the early 1980s).
+
+The Lib Dems espouce a centrist 'third way' economic policy alongside social liberal views. Their only recent period in Goverment was as part of the Conservative/Lib Dem coalition from 2010-2015. During this time, they were seen to facilitate many unpopular Tory policies, which resulted in a significant loss of support in the 2015 Election.
+
+### UKIP / The Brexit Party
+The UK Independence Party (UKIP) was a right-leaning libertarian-esque party that formed in the 1980s. It's primary policy platform has been the UK's exit from the European Union. It enjoyed success in European and Local Elections under the leadership of Nigel Farage in the 2000s and 2010s, however the FPTP system prevented it from breaking through in General Elections.
+
+Since the Brexit vote, UKIP has adopted a more explicit far-right position, and has lost the majority of its support. Separately, Nigel Farage has formed 'The Brexit Party'. Polling companies tend to treat pre-Brexit UKIP and The Brexit Party as one and the same for trend analysis - something that we will do here as well.
+
+### National Parties
+Further to the main parties listed above, there are parties specific to the 'nations' of Scotland, Wales, and Northern Ireland. They only stand candidates in constituencies within their respective nations. Note - the main parties listed above typically field candidates across England, Wales, and Scotland, but not Northern Ireland.
+
+#### SNP
+The Scottish National Party are the most successful regional party. They are comparable to Labour in terms of their political positioning, though their primary USP is their desire for Scotland to become an independent country. Since 2015 they have held the majority of Scottish seats.
+
+#### Plaid Cymru
+Plaid Cymru are the party of Wales. As well as the SNP, they are left-leaning both economically and socially. They do not hold many seats in the UK Parliament, and Welsh independence is not generally seen as a realistic propect (as opposed to Scottish independence).
+
+#### Northern Ireland
+Northern Ireland has a selection of its own political parties, with people typically voting along sectarian lines (i.e. Unionist or Republican). The main Unionist party is the DUP, who are right-leaning, and have supported the minority Conservative Government since the 2017 election. The main Republican party is Sinn Fein. Despite being elected as part of General Elections, Sinn Fein MPs never sit in Parliament on principle, as they refuse to recognise the UK Parliament's right to legislate for any part of Ireland.
+
+
+## The 2016 EU Referendum
+
+Despite being a fringe issue for most voters for many years, the UK's relationship with the EU had been a prominent concern within the Conservative party for many years. Fearing the growing popularity of UKIP, David Cameron (The Conservative's then-leader) went into the 2015 General Election promising a referendum on EU membership if they won.
+
+Against expectations, the Conservatives won the election, and the EU referendum was called to be held 2016. Given the perceived unlikelihood of the UK voting to leave, it was reckoned that winning the referendum would not only kill the issue once and for all within The Conservative party, but would also stop the rising popularity of UKIP, who had been calling for such a referendum for many years. In the event, 52% of votes were cast for Leave, and David Cameron resigned as Prime Minister on the day of the result.
+
+Many analyses of the referendum result suggest that the leave vote was motivated by matters other than the economic relationship with other EU states (the referendum followed six years of public spending cuts, and a perceived stagnation in living standards). Nonetheless, MPs generally agreed that the result should be implimented.
+
+In 2017, The Conservatives, now under the leadership of Theresa May, called another General Election. Their majority in the House of Commons was relatively slim, and opinion polls at the time suggested that such a vote would result in major gains. However, the UK electorate defied expectations once again. The election left The Conservatives as the largest party in the House of Commons, but deprived them of a majority. This made passing legislation very difficult, especially any legislation pertaining to Brexit.
+
+
+
+## The 2019 General Election
+
+Implimenting the Brexit vote has proved to be very challenging. As of 2019, many of the MPs elected in the 2017 General Election were either calling for the process to be halted entirely or for a second referendum.
+
+Frustrated with the process, Conservative MPs forced out Theresa May, and Boris Johnson was voted by party members to replace her. The general election was then called later in the year, with a desire for an increased mandate to 'deliver Brexit'.
