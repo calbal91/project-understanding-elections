@@ -15,6 +15,7 @@ Analytically identify the drivers for the result of the 2019 UK General Election
        * [Data Sources](#data-sources)
        * [EDA](#eda)
    * [Modelling](#modelling)
+       * [The Target Variable](#the-target-variable)   
        * [Algorithms Used](#algorithms-used)
        * [Permutation Importance](#permutation-importance)
    * [Conclusion](#conclusion)
@@ -90,73 +91,21 @@ We can pull various CSVs together to create a grand table of constituency-by-con
 
 ## Modelling
 
+### The Target Variable
+
+As mentioned, the target variable for this analysis was the projected voting preference of each individual constituency, as forecast by YouGov's highly respected MRP Poll, published on November 27th (just over two weeks before the election itself).
+
+It showed a harrowing picture for the opposition Labour party. A third of the seats that had previously been Conservative / Labour marginals now looked like they were safe Conservative, and up to 30% of seats that had been safe Labour in 2017 now looked as if they were going to be Conservative marginals.
+
+By contrast, the Conservatives were set to lose very few safe seats, and they were still competitive in most seats that had previously been marginals.
+
+##### The list of KPIs used as features in this project
+
+![Sankey](https://github.com/calbal91/project-understanding-elections/blob/master/Images/sankey.png)
+
 ### Algorithms Used
 
 ### Permutation Importance
 
 
 ## Conclusion
-
-This has significant implications for investors - we can see how different the fortunes of two investors could have been if they'd invested in, respectively, the best and worst zip codes in the 20 years from 1996.
-
-![Investments](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/BestWorstInvestment.jpg)
-
-If we look at the data at a state by state level, we can see how property prices have grown (and fallen) in different areas of the USA:
-
-#### Prices as at April 2018
-
-![PriceByState](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePrices.png)
-
-#### Price growth during financial crisis
-
-![PriceTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePriceGrowth07.png)
-
-#### Price growth since financial crisis
-
-![PriceTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePriceGrowth12.png)
-
-
-One thing to note here is that whilst some states have grown very strongly in the last few years, many of these states were the ones worst hit by the crash - it may in simply be the case that they've been recovering their value, and don't offer good long-term potential.
-
-![StateGrowth](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StateGrowth.jpg)
-
-This is all very important context for when we come to fit our forecasting models:
-
-* We should not use the full historical data to train our models. The financial crisis had a material effect on the shape of the time series, but was (we can only hope) a freak exogenous event. If we don’t expect something similar to happen again, then we shouldn’t let our model train itself on that data from that period. We should therefore focus on price data since April 2012…
-* However, taking this approach brings its own problems. By using only the last six years of data, a model might assume that regions in states like Nevada and Florida are sure bets, and enthusiastically recommend that we invest there. Of course, we know that growth in these cases was simply recovery from a rough recession. In any case, we should be wary of investing in regions that have the potential to shed half their value in the event of an unforeseen economic shock.
-
-
-## Selecting Regions
-
-We can get around this by discounting many of our zip codes out of hand straight away (given that we only need to choose 5 anyway).
-
-We plot all the regions on a scatter, with recent price growth on the horizontal and price growth during the financial crisis on the vertical.
-
-![ZipScatter](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ZipScatter.png)
-
-By looking at regions that are above average in both measures, we can isolate places that both weathered the storm between 2007 and 2012 (demonstrating at least some resilience against economic shocks) and also strong growth potential for future years.
-
-Therefore, these 1,737 ‘Growth Regions’ are all areas that we can, in principle, feel comfortable recommending to investors. Indeed, by indexing April 2007 prices in these regions, we see that they have outperformed other regions since at least 1996.
-
-![GrowthRegions](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/GrowthRegionGrowth.png)
-
-
-## Modelling Forecasts
-
-Having checked that our data is neither stationary nor seasonal, we can go about producing individual ARIMA models for each zip code.
-
-#### Further detail on ARIMA modelling...
-
-![ARIMA](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ARIMA.jpg)
-
-Having found an optimal ARIMA model for each zip code, we can see that some regions are forecast to experience very strong growth. However, some forecasts come with a very wide range – and would therefore make for risky investments.
-
-Again, we can focus on the best zip codes - those with strong growth potential, but also with narrow confidence intervals (and thus less intrinsic risk).
-
-![ZipRiskScatter](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ZipScatter2.png)
-
-Finally, we can pick the five zip codes from these regions that have the highest forecast returns.
-
-![RecommendedRegions](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/Recommendations.jpg)
-
-![ExpectedReturns](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/RecommendationReturns.jpg)
