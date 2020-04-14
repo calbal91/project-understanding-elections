@@ -5,6 +5,21 @@
 
 Analytically identify the drivers for the result of the 2019 UK General Election.
 
+## Table of contents
+
+   * [The Motivation](#the-motivation)
+   * [The Technologies Used](#the-technologies-used)
+   * [The Process Overview](#the-process-overview)
+   * [Data Gathering](#data-gathering)
+       * [Intro to UK Politics](#intro-to-uk-politics)
+       * [Data Sources](#data-sources)
+       * [EDA](#eda)
+   * [Modelling](#modelling)
+       * [Algorithms Used](#algorithms-used)
+       * [Permutation Importance](#permutation-importance)
+   * [Conclusion](#conclusion)
+
+
 ## The Motivation
 
 On September 2nd, Boris Johnson, the UK’s Prime Minister, stood on the steps of 10 Downing Street and announced that he didn’t want a general election. Anyone with an ounce of political nous knew what was coming next.
@@ -36,11 +51,34 @@ Understanding these things could help Labour avoid such a grand-scale defeat in 
 3. Having built a dataset, we train classifier models. We then take the most accurate models, and perform permutation importance on them to see which features were most decisive. We can infer that these were the most critical factors in the election result.
 
 
-## The Data
+## Data Gathering
 
-Firstly, a high level view of the data shows how volatile the housing market has been in the last two decades (driven by the financial crisis around 2008-2012).
+The data gathering process for this project was significant. The dataset had over 100 features for each constituency in England and Wales, with most features covering all UK constituencies.
 
-![MarketTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/PriceTrend.png)
+### Intro to UK Politics
+
+Political power in the UK lies in the House of Commons (or Parliament). This is populated by 650 members (MPs), one from each of the UK’s 650 ‘constituencies’.
+
+In a general election, each constituency votes for a single MP from a selection of candidates. The one candidate with the most votes in that constituency is elected as an MP. The political party that has the most elected MPs overall wins the election, and typically forms the government. This system is known as ‘First Past The Post’ (FPTP).
+
+##### The 2019 results - each hex represents one constituency
+
+![2019Results](https://github.com/calbal91/project-understanding-elections/blob/master/Images/2019map.png)
+
+
+### Data Sources
+
+### EDA
+
+
+## Modelling
+
+### Algorithms Used
+
+### Permutation Importance
+
+
+## Conclusion
 
 This has significant implications for investors - we can see how different the fortunes of two investors could have been if they'd invested in, respectively, the best and worst zip codes in the 20 years from 1996.
 
