@@ -1,77 +1,107 @@
-# Predicting The 2019 UK General Election
-
-The recent turbulence in UK politics has been well documented. The results of the last two General Elections in 2015 and 2017 produced unexpected results, and a great deal of uncertainty surrounds the result of the 2019 vote.
-
-The aim of this analysis is to consider the attributes of UK parliamentary constituencies, and discover which characteristics play the greatest role in determining who people vote for.
-
-This has implications for how parties should campaign to maximise their vote share. For example, we could predict which messages may prove most effective in different parts of the country. We could also predict which constituencies have the highest propensity to 'flip' from one party to another, allowing parties to target resources more effectively.
-
-Some basic facts about the country's political systems will be helpful in understanding this project.
+# Explaining The 2019 UK General Election
 
 
-## The House of Commons & The UK's Electoral System
+## The Objective
 
-Though the United Kingdom is notionally a monarchy, with a King or Queen as the head of state, the 'House of Commons' is where political power in the UK generally lies.
+Analytically identify the drivers for the result of the 2019 UK General Election.
 
-The House of Commons, or 'Parliament', is comprised of 650 Members of Parliament, or 'MPs'. Each of these MPs represent a parliamentary 'Constituency' - a pre-defined geographic area of the country. During a general election, a selection of candidates will stand in each constituency. Each elector who lives in that constituency votes for one candidate, and the candidate who receives the most votes becomes the MP of that constituency, taking one of the 650 seats in parliament.
+## The Motivation
 
-Each candidate will typically be allied to a single political party (see below). The party that wins the most seats wins the election overall, and has the chance to form a government. The leader of the winning party (who is also an MP) typically becomes Prime Minister.
+On September 2nd, Boris Johnson, the UK’s Prime Minister, stood on the steps of 10 Downing Street and announced that he didn’t want a general election. Anyone with an ounce of political nous knew what was coming next.
 
-This voting system is known as 'First Past The Post' (FPTP). Though touted as a system that generally produces strong, stable governments, it can result in a significant misalingment between the national share of votes that a party receives, and the share seats in Parliament that it wins. Suppose that five parties stand in each constituency. Then theoretically a party could win all of the seats in Parliament with just 20.1% of the vote (if the other four all get 19%-20%).
+On the morning of Friday the 13th (naturally) of December, the country awoke to find that it had given Boris Johnson the biggest Conservative election win since the days of Margaret Thatcher.
 
-This is an extreme example, though in 2015 The Conservative Party managed to win more than half the seats with just 37% of the popular vote. On the other end of the spectrum, UKIP won just one seat with 13% of the national vote. Indeed, the UK's FPTP electoral system makes it very difficult for smaller parties to win seats in general elections. This has resulted in a two-party hegemony for nearly a century - every election since 1922 has either been won by the Conservative Party or the Labour Party.
+![BorisJohnson](https://github.com/calbal91/project-understanding-elections/blob/master/Images/boris.jpg)
 
+Many places voted for the Conservatives for the first time, with the opposition Labour party suffering its worst defeat since before WW2. Could this result have been predicted? And what were the greatest factors that caused such a result?
 
-
-## The UK's Political Parties
-
-### The Conservative Party
-Also known as the 'Tories', the Conservative Party are right-leaning, both economically and socially, and are traditionally the party of the middle and upper classes.
-
-Their most famous Prime Ministers include Margaret Thatcher, who oversaw substantial de-regulation of the country's financial sector, and Winston Churchill, who led the government of national unity during WW2. More recently David Cameron sought to de-toxify the party's image through moves towards social liberalism (for example, the legalisaiton of same-sex marriage).
-
-### The Labour Party
-Traditionally the party of the Trade Union movement, with left-leaning views on economic affairs and social justice. Their achievements in office include the founding of the country's National Health Service in 1948.
-
-The Labour Party had greatest electoral success under Tony Blair in the 1990s and 2000s, where it moved to a more economically centrist position (the party re-branded itself as 'New Labour' during this time).
-
-### The Liberal Democrats
-AKA the 'Lib Dems'. The party was the result of a merger between the Liberal Party, who enjoyed wide electoral success in the 19th and early 20th Century, and the Social Democratic Party (who were themselves a group that splintered from the Labour Party in the early 1980s).
-
-The Lib Dems espouce a centrist 'third way' economic policy alongside social liberal views. Their only recent period in Goverment was as part of the Conservative/Lib Dem coalition from 2010-2015. During this time, they were seen to facilitate many unpopular Tory policies, which resulted in a significant loss of support in the 2015 Election.
-
-### UKIP / The Brexit Party
-The UK Independence Party (UKIP) was a right-leaning libertarian-esque party that formed in the 1980s. It's primary policy platform has been the UK's exit from the European Union. It enjoyed success in European and Local Elections under the leadership of Nigel Farage in the 2000s and 2010s, however the FPTP system prevented it from breaking through in General Elections.
-
-Since the Brexit vote, UKIP has adopted a more explicit far-right position, and has lost the majority of its support. Separately, Nigel Farage has formed 'The Brexit Party'. Polling companies tend to treat pre-Brexit UKIP and The Brexit Party as one and the same for trend analysis - something that we will do here as well.
-
-### National Parties
-Further to the main parties listed above, there are parties specific to the 'nations' of Scotland, Wales, and Northern Ireland. They only stand candidates in constituencies within their respective nations. Note - the main parties listed above typically field candidates across England, Wales, and Scotland, but not Northern Ireland.
-
-#### SNP
-The Scottish National Party are the most successful regional party. They are comparable to Labour in terms of their political positioning, though their primary USP is their desire for Scotland to become an independent country. Since 2015 they have held the majority of Scottish seats.
-
-#### Plaid Cymru
-Plaid Cymru are the party of Wales. As well as the SNP, they are left-leaning both economically and socially. They do not hold many seats in the UK Parliament, and Welsh independence is not generally seen as a realistic propect (as opposed to Scottish independence).
-
-#### Northern Ireland
-Northern Ireland has a selection of its own political parties, with people typically voting along sectarian lines (i.e. Unionist or Republican). The main Unionist party is the DUP, who are right-leaning, and have supported the minority Conservative Government since the 2017 election. The main Republican party is Sinn Fein. Despite being elected as part of General Elections, Sinn Fein MPs never sit in Parliament on principle, as they refuse to recognise the UK Parliament's right to legislate for any part of Ireland.
+Understanding these things could help Labour avoid such a grand-scale defeat in the future (or help the Conservatives maintain a compelling majority when the next election comes).
 
 
-## The 2016 EU Referendum
+## The Technologies Used
 
-Despite being a fringe issue for most voters for many years, the UK's relationship with the EU had been a prominent concern within the Conservative party for many years. Fearing the growing popularity of UKIP, David Cameron (The Conservative's then-leader) went into the 2015 General Election promising a referendum on EU membership if they won.
-
-Against expectations, the Conservatives won the election, and the EU referendum was called to be held 2016. Given the perceived unlikelihood of the UK voting to leave, it was reckoned that winning the referendum would not only kill the issue once and for all within The Conservative party, but would also stop the rising popularity of UKIP, who had been calling for such a referendum for many years. In the event, 52% of votes were cast for Leave, and David Cameron resigned as Prime Minister on the day of the result.
-
-Many analyses of the referendum result suggest that the leave vote was motivated by matters other than the economic relationship with other EU states (the referendum followed six years of public spending cuts, and a perceived stagnation in living standards). Nonetheless, MPs generally agreed that the result should be implimented.
-
-In 2017, The Conservatives, now under the leadership of Theresa May, called another General Election. Their majority in the House of Commons was relatively slim, and opinion polls at the time suggested that such a vote would result in major gains. However, the UK electorate defied expectations once again. The election left The Conservatives as the largest party in the House of Commons, but deprived them of a majority. This made passing legislation very difficult, especially any legislation pertaining to Brexit.
+* Pandas for data munging
+* XGBoost, and Scikit-learn Random Forest / Decision Tree classifiers for building classification engines
+* Scikit-learn GridSearchCV for hyperparameter tuning
+* eli5 for Permutation Importance
+* Matplotlib and Plotly for data visualisation
 
 
+## The Process Overview
 
-## The 2019 General Election
+1. If we expect a model to tell us which factors were the most important in the election, we need to find some factors for it to choose from. In particular, we should scrape / download as much constituency-level data as possible from official government sources as we can.
 
-Implimenting the Brexit vote has proved to be very challenging. As of 2019, many of the MPs elected in the 2017 General Election were either calling for the process to be halted entirely or for a second referendum.
+2. Since this analysis was conducted in the week running up to the general election, we couldn't use the actual results as our target variable. Instead, we used the results of YouGov’s MRP Poll published on November 27th (just over two weeks before polling day). MRP (Multilevel Regression with Poststratification) is an advanced polling methodology, and the YouGov poll in question had a huge sample size, with over 100,000 people responding in the space of seven days. It was therefore able to give a projected vote share for each party in every constituency. In the event, it slightly underestimated the Conservative success in seat terms, though its projection of overall vote share was within 1–2% of the final result for the main parties.
 
-Frustrated with the process, Conservative MPs forced out Theresa May, and Boris Johnson was voted by party members to replace her. The general election was then called later in the year, with a desire for an increased mandate to 'deliver Brexit'.
+3. Having built a dataset, we train classifier models. We then take the most accurate models, and perform permutation importance on them to see which features were most decisive. We can infer that these were the most critical factors in the election result.
+
+
+## The Data
+
+Firstly, a high level view of the data shows how volatile the housing market has been in the last two decades (driven by the financial crisis around 2008-2012).
+
+![MarketTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/PriceTrend.png)
+
+This has significant implications for investors - we can see how different the fortunes of two investors could have been if they'd invested in, respectively, the best and worst zip codes in the 20 years from 1996.
+
+![Investments](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/BestWorstInvestment.jpg)
+
+If we look at the data at a state by state level, we can see how property prices have grown (and fallen) in different areas of the USA:
+
+#### Prices as at April 2018
+
+![PriceByState](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePrices.png)
+
+#### Price growth during financial crisis
+
+![PriceTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePriceGrowth07.png)
+
+#### Price growth since financial crisis
+
+![PriceTrend](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StatePriceGrowth12.png)
+
+
+One thing to note here is that whilst some states have grown very strongly in the last few years, many of these states were the ones worst hit by the crash - it may in simply be the case that they've been recovering their value, and don't offer good long-term potential.
+
+![StateGrowth](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/StateGrowth.jpg)
+
+This is all very important context for when we come to fit our forecasting models:
+
+* We should not use the full historical data to train our models. The financial crisis had a material effect on the shape of the time series, but was (we can only hope) a freak exogenous event. If we don’t expect something similar to happen again, then we shouldn’t let our model train itself on that data from that period. We should therefore focus on price data since April 2012…
+* However, taking this approach brings its own problems. By using only the last six years of data, a model might assume that regions in states like Nevada and Florida are sure bets, and enthusiastically recommend that we invest there. Of course, we know that growth in these cases was simply recovery from a rough recession. In any case, we should be wary of investing in regions that have the potential to shed half their value in the event of an unforeseen economic shock.
+
+
+## Selecting Regions
+
+We can get around this by discounting many of our zip codes out of hand straight away (given that we only need to choose 5 anyway).
+
+We plot all the regions on a scatter, with recent price growth on the horizontal and price growth during the financial crisis on the vertical.
+
+![ZipScatter](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ZipScatter.png)
+
+By looking at regions that are above average in both measures, we can isolate places that both weathered the storm between 2007 and 2012 (demonstrating at least some resilience against economic shocks) and also strong growth potential for future years.
+
+Therefore, these 1,737 ‘Growth Regions’ are all areas that we can, in principle, feel comfortable recommending to investors. Indeed, by indexing April 2007 prices in these regions, we see that they have outperformed other regions since at least 1996.
+
+![GrowthRegions](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/GrowthRegionGrowth.png)
+
+
+## Modelling Forecasts
+
+Having checked that our data is neither stationary nor seasonal, we can go about producing individual ARIMA models for each zip code.
+
+#### Further detail on ARIMA modelling...
+
+![ARIMA](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ARIMA.jpg)
+
+Having found an optimal ARIMA model for each zip code, we can see that some regions are forecast to experience very strong growth. However, some forecasts come with a very wide range – and would therefore make for risky investments.
+
+Again, we can focus on the best zip codes - those with strong growth potential, but also with narrow confidence intervals (and thus less intrinsic risk).
+
+![ZipRiskScatter](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/ZipScatter2.png)
+
+Finally, we can pick the five zip codes from these regions that have the highest forecast returns.
+
+![RecommendedRegions](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/Recommendations.jpg)
+
+![ExpectedReturns](https://github.com/calbal91/project-ARIMA-modelling/blob/master/Images/RecommendationReturns.jpg)
