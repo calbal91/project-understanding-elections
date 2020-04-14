@@ -65,8 +65,25 @@ In a general election, each constituency votes for a single MP from a selection 
 
 ![2019Results](https://github.com/calbal91/project-understanding-elections/blob/master/Images/2019map.png)
 
+This is a voting system that unambiguously helps the UK’s two main parties — the Conservatives and Labour, who have won every general election since 1922.
+
+Another phenomena that arises from FPTP is ‘safe seats’ — constituencies that are almost certain to vote a given way. In the run up to the 2019 election, there were 170 constituencies that have voted for the same party since World War 2 (the constituency of North Shropshire is probably the safest seat of all — it has been held by the Conservatives since 1834).
+
+This idea of 'safe seats', and seats that are closely faught ('marginals' in the lingo) will be important later.
+
+##### The main parties, represented on the political compass, as at the 2019 election
+
+![PoliticalCompass](https://github.com/calbal91/project-understanding-elections/blob/master/Images/compass.png)
 
 ### Data Sources
+
+There exists no single 'master' database of different constituency statistics that is publically available. Happily, a lot of official data is available at a constituency level through government websites, in particular https://commonslibrary.parliament.uk/local-data/
+
+We can pull various CSVs together to create a grand table of constituency-by-constituency KPIs across a range of metrics; from house prices, weekly wages, and population density, to educational attainment, ethnicity, and even broadband quality.
+
+##### The list of KPIs used as features in this project
+
+![KPIs](https://github.com/calbal91/project-understanding-elections/blob/master/Images/kpis.png)
 
 ### EDA
 
