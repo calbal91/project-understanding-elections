@@ -14,6 +14,7 @@ Analytically identify the drivers for the result of the 2019 UK General Election
        * [Intro to UK Politics](#intro-to-uk-politics)
        * [Data Sources](#data-sources)
        * [EDA](#eda)
+       * [Brexit](#brexit)
    * [Clustering](#clustering)
    * [Modelling](#modelling)
        * [The Target Variable](#the-target-variable)   
@@ -63,7 +64,7 @@ Political power in the UK lies in the House of Commons (or Parliament). This is 
 
 In a general election, each constituency votes for a single MP from a selection of candidates. The one candidate with the most votes in that constituency is elected as an MP. The political party that has the most elected MPs overall wins the election, and typically forms the government. This system is known as ‘First Past The Post’ (FPTP).
 
-**The 2019 results - each hex represents one constituency
+**The 2019 results - each hex represents one constituency**
 
 ![2019Results](https://github.com/calbal91/project-understanding-elections/blob/master/Images/2019map.png)
 
@@ -73,7 +74,7 @@ Another phenomena that arises from FPTP is ‘safe seats’ — constituencies t
 
 This idea of 'safe seats', and seats that are closely faught ('marginals' in the lingo) will be important later.
 
-**The main parties, represented on the political compass, as at the 2019 election
+**The main parties, represented on the political compass, as at the 2019 election**
 
 ![PoliticalCompass](https://github.com/calbal91/project-understanding-elections/blob/master/Images/compass.png)
 
@@ -89,7 +90,48 @@ We can pull various CSVs together to create a grand table of constituency-by-con
 
 ### EDA
 
+It can be eye opening to investigate the geographical distribution of some of these KPIs, and the regional disparities that they demonstrate.
+
+For example, we see that wages are higher in constituencies in London and the South East, which should be no surprise to any UK resident. However, house prices have grown so much in these places compared to the rest of the UK, that the average property is worth up to 30 times the annual wage (compared with 5–10 times elsewhere).
+
+![Wages](https://github.com/calbal91/project-understanding-elections/blob/master/Images/wages.png)
+
+Where you live also correlates strongly with the type of industry you’re likely to work in.
+
+![Industries](https://github.com/calbal91/project-understanding-elections/blob/master/Images/industry.png)
+
+Blue collar work (for example, heavy industry and hospitality) is more prevalent in the Midlands and North of England — white collar industries (financial services, IT, and sciences) are clustered in cities, especially London. Constituencies with more white collar workers have higher wages, and lower unemployment.
+
+![wages](https://github.com/calbal91/project-understanding-elections/blob/master/Images/wages.png)
+
+This ‘London vs. The Rest’ narrative runs through much of the data; Londoners tend to be better qualified, more ethnically diverse, and more international than the rest of the country.
+
+![Qualifications](https://github.com/calbal91/project-understanding-elections/blob/master/Images/qualifications.png)
+
+![Immigration](https://github.com/calbal91/project-understanding-elections/blob/master/Images/immigration.png)
+
+### Brexit
+
+These factors all come into play when we think about the great bogeyman of current British politics: Brexit. 
+
+The first thing to note is the diversity of opinion that Brexit generates. Though the national margin of victory was very narrow, at 52% vs 48%, this vote spread was not evenly across constituencies. The leave vote was as low as 20% in some areas, but as high as 75% in others.
+
+![BrexitVote](https://github.com/calbal91/project-understanding-elections/blob/master/Images/brexitvote.png)
+
+Unsurprisingly, this spread appears to be dependent on geography. We note strong Leave votes outside of London — mostly in middle England.
+
+![BrexitMap](https://github.com/calbal91/project-understanding-elections/blob/master/Images/brexitmap.png)
+
+The drivers for Brexit were complex and diverse, however, there are some individual features that correlate very strongly with a constituency’s leave vote — qualification levels, and industry.
+
+![BrexitScatter](https://github.com/calbal91/project-understanding-elections/blob/master/Images/brexitscatter.png)
+
+The correlation coefficient between the share of leave votes in a constituency and the share of people with level 4+ qualifications (degrees or equivalent) is very negative, at -0.72, whereas the coefficient between the share of leave votes and the share of people working in heavy industry is very high, at +0.72.
+
+
 # Clustering
+
+One application of the data is Unsupervised Learning. In other words, without labelling the constituencies by their voting intention, can we cluster them simply based on their demographics?
 
 
 
@@ -103,7 +145,7 @@ It showed a harrowing picture for the opposition Labour party. A third of the se
 
 By contrast, the Conservatives were set to lose very few safe seats, and they were still competitive in most seats that had previously been marginals.
 
-**The list of KPIs used as features in this project
+**The forecasted change of seat types compared to the 2017 election**
 
 ![Sankey](https://github.com/calbal91/project-understanding-elections/blob/master/Images/sankey.png)
 
