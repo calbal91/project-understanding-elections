@@ -102,7 +102,7 @@ Where you live also correlates strongly with the type of industry you’re likel
 
 Blue collar work (for example, heavy industry and hospitality) is more prevalent in the Midlands and North of England — white collar industries (financial services, IT, and sciences) are clustered in cities, especially London. Constituencies with more white collar workers have higher wages, and lower unemployment.
 
-![wages](https://github.com/calbal91/project-understanding-elections/blob/master/Images/wages.png)
+![IndustryScatter](https://github.com/calbal91/project-understanding-elections/blob/master/Images/industryscatter.png)
 
 This ‘London vs. The Rest’ narrative runs through much of the data; Londoners tend to be better qualified, more ethnically diverse, and more international than the rest of the country.
 
@@ -133,6 +133,11 @@ The correlation coefficient between the share of leave votes in a constituency a
 
 One application of the data is Unsupervised Learning. In other words, without labelling the constituencies by their voting intention, can we cluster them simply based on their demographics?
 
+A use case of this is outlined below.
+
+![Clustering](https://github.com/calbal91/project-understanding-elections/blob/master/Images/clustering1.jpg)
+
+![Clustering](https://github.com/calbal91/project-understanding-elections/blob/master/Images/clustering2.jpg)
 
 
 # Modelling
@@ -148,6 +153,11 @@ By contrast, the Conservatives were set to lose very few safe seats, and they we
 **The forecasted change of seat types compared to the 2017 election**
 
 ![Sankey](https://github.com/calbal91/project-understanding-elections/blob/master/Images/sankey.png)
+
+It's worth noting the massive class imbalances we have here. To combat this, we will use the SMOTE algorithm to generate synthetic datapoints for the minority classes.
+
+Note, since SMOTE uses a ‘nearest neighbour’ algorithm, we can not synthesise for classes where there was only one datapoint to begin with. We will therefore drop such classes from our analysis going forward (these only represent half a percent of the seats in parliament, so this shouldn’t affect the analysis unduly).
+
 
 ### Algorithms Used
 
