@@ -20,6 +20,7 @@ Analytically identify the drivers for the result of the 2019 UK General Election
        * [The Target Variable](#the-target-variable)   
        * [Algorithms Used](#algorithms-used)
        * [Permutation Importance](#permutation-importance)
+       * [Important Features](#important-features)
    * [Conclusion](#conclusion)
 
 
@@ -173,6 +174,17 @@ The concept of permutation importance is very intuitive:
 
 This procedure breaks the relationship between each feature and the target, thus the drop in accuracy is indicative of how much the model depends on that feature.
 
+### Important Features
+
 
 ## Conclusion
 
+The Conservatives were better placed to run a focussed campaign that would still appeal to a large number of constituencies. Across the most 'important' features, Conservative/Labour marginal seats looked much more similar to existing 'safe' Conservative seats.
+
+Labour, however, were forced to appeal to a very wide range of voters. This came across in their campaign, which was criticised as being muddled and too wide-ranging.
+
+Uniting the various types of voter that might support Labour looks like a difficult task. If nothing else, it would take seriously talented leadership, and there is significant evidence to suggest that Labour was sorely lacking this in the 2019 election. There is a sea of anecdotal evidence that Jeremy Corbyn, their leader, was profoundly unpopular on the doorstep during the campaign. More scientific polling since the election seems to bear this out.
+
+![OpiniumPolling](https://github.com/calbal91/project-understanding-elections/blob/master/Images/opiniumpolling.jpg)
+
+Source: https://twitter.com/OpiniumResearch/status/1205510937995812864
