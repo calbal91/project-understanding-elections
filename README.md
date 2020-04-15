@@ -136,9 +136,9 @@ One application of the data is Unsupervised Learning. In other words, without la
 
 A use case of this is outlined below.
 
-![Clustering](https://github.com/calbal91/project-understanding-elections/blob/master/Images/clustering1.jpg)
-
 ![Clustering](https://github.com/calbal91/project-understanding-elections/blob/master/Images/clustering2.jpg)
+
+![Clustering](https://github.com/calbal91/project-understanding-elections/blob/master/Images/clustering1.jpg)
 
 
 # Modelling
@@ -162,6 +162,20 @@ Note, since SMOTE uses a ‘nearest neighbour’ algorithm, we can not synthesis
 
 ### Algorithms Used
 
+We deployed a series of classifier algorithms:
+
+* Decision trees
+* Random forests
+* XGBoost
+
+For each of these, we ran a cross-validated gridsearch to optimise hyperparamters.
+
+Ultimately, we were able to create an XGBoost algorithm that had 100% accuracy.
+
+![ModelCM](https://github.com/calbal91/project-understanding-elections/blob/master/Images/modelcm.png)
+
+We could thus take this model, and apply machine learning explainability techniques to understand which features are most important to the model's decision making.
+
 ### Permutation Importance
 
 The concept of permutation importance is very intuitive:
@@ -174,8 +188,29 @@ The concept of permutation importance is very intuitive:
 
 This procedure breaks the relationship between each feature and the target, thus the drop in accuracy is indicative of how much the model depends on that feature.
 
+Calculating permutation importance can be done in Python using the eli5 package (though an equivalent function has been recently added to Scikit Learn).
+
 ### Important Features
 
+**The most 'important' feautres, with 95% confidence intervals**
+
+![Permutation](https://github.com/calbal91/project-understanding-elections/blob/master/Images/perm.png)
+
+The most impactful feature is whether or not a constituency is in Scotland. This should not be surprising given the Scottish National Party, who are competitive in 58 out of 59 Scottish seats.
+
+If we look at some of the other most important feature, a pattern emerges:
+
+![Features](https://github.com/calbal91/project-understanding-elections/blob/master/Images/features.png)
+
+Let's consider the Brexit feature in isolation (though the same is true of other features):
+
+* The seats that Labour was competitive in (i.e. Labour safe seats, plus its marginals) cover a very wide range of values, from 20% to nearly 70%. Thus, a single position on EU membership would have failed to appease all of its potential voters simultaneously.
+
+* The Labour / Conservative marginal seats look much more similar to safe Conservative seats than to save Labour seats. Thus, the Conservatives were able to have a more focussed Brexit policy, without the risk of alienating either its core base, or its potential voters in Labour marginals.
+
+This is even true when we think about the geographical type of seat — the Conservative / Labour marginals were mostly in towns (rather than cities). Again, the profile of the marginal seats much better reflected existing Conservative safe seats.
+
+![Towns](https://github.com/calbal91/project-understanding-elections/blob/master/Images/towns.png)
 
 ## Conclusion
 
