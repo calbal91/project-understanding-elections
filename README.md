@@ -5,7 +5,7 @@
 
 Analytically identify the drivers for the result of the 2019 UK General Election.
 
-## Table of contents
+# Table of contents
 
    * [The Motivation](#the-motivation)
    * [The Technologies Used](#the-technologies-used)
@@ -14,6 +14,7 @@ Analytically identify the drivers for the result of the 2019 UK General Election
        * [Intro to UK Politics](#intro-to-uk-politics)
        * [Data Sources](#data-sources)
        * [EDA](#eda)
+   * [Clustering](#clustering)
    * [Modelling](#modelling)
        * [The Target Variable](#the-target-variable)   
        * [Algorithms Used](#algorithms-used)
@@ -21,7 +22,7 @@ Analytically identify the drivers for the result of the 2019 UK General Election
    * [Conclusion](#conclusion)
 
 
-## The Motivation
+# The Motivation
 
 On September 2nd, Boris Johnson, the UK’s Prime Minister, stood on the steps of 10 Downing Street and announced that he didn’t want a general election. Anyone with an ounce of political nous knew what was coming next.
 
@@ -34,7 +35,7 @@ Many places voted for the Conservatives for the first time, with the opposition 
 Understanding these things could help Labour avoid such a grand-scale defeat in the future (or help the Conservatives maintain a compelling majority when the next election comes).
 
 
-## The Technologies Used
+# The Technologies Used
 
 * Pandas for data munging
 * XGBoost, and Scikit-learn Random Forest / Decision Tree classifiers for building classification engines
@@ -43,7 +44,7 @@ Understanding these things could help Labour avoid such a grand-scale defeat in 
 * Matplotlib and Plotly for data visualisation
 
 
-## The Process Overview
+# The Process Overview
 
 1. If we expect a model to tell us which factors were the most important in the election, we need to find some factors for it to choose from. In particular, we should scrape / download as much constituency-level data as possible from official government sources as we can.
 
@@ -52,7 +53,7 @@ Understanding these things could help Labour avoid such a grand-scale defeat in 
 3. Having built a dataset, we train classifier models. We then take the most accurate models, and perform permutation importance on them to see which features were most decisive. We can infer that these were the most critical factors in the election result.
 
 
-## Data Gathering
+# Data Gathering
 
 The data gathering process for this project was significant. The dataset had over 100 features for each constituency in England and Wales, with most features covering all UK constituencies.
 
@@ -62,7 +63,7 @@ Political power in the UK lies in the House of Commons (or Parliament). This is 
 
 In a general election, each constituency votes for a single MP from a selection of candidates. The one candidate with the most votes in that constituency is elected as an MP. The political party that has the most elected MPs overall wins the election, and typically forms the government. This system is known as ‘First Past The Post’ (FPTP).
 
-##### The 2019 results - each hex represents one constituency
+**The 2019 results - each hex represents one constituency
 
 ![2019Results](https://github.com/calbal91/project-understanding-elections/blob/master/Images/2019map.png)
 
@@ -72,7 +73,7 @@ Another phenomena that arises from FPTP is ‘safe seats’ — constituencies t
 
 This idea of 'safe seats', and seats that are closely faught ('marginals' in the lingo) will be important later.
 
-##### The main parties, represented on the political compass, as at the 2019 election
+**The main parties, represented on the political compass, as at the 2019 election
 
 ![PoliticalCompass](https://github.com/calbal91/project-understanding-elections/blob/master/Images/compass.png)
 
@@ -82,14 +83,17 @@ There exists no single 'master' database of different constituency statistics th
 
 We can pull various CSVs together to create a grand table of constituency-by-constituency KPIs across a range of metrics; from house prices, weekly wages, and population density, to educational attainment, ethnicity, and even broadband quality.
 
-##### The list of KPIs used as features in this project
+#### The list of KPIs used as features in this project
 
 ![KPIs](https://github.com/calbal91/project-understanding-elections/blob/master/Images/kpis.png)
 
 ### EDA
 
+# Clustering
 
-## Modelling
+
+
+# Modelling
 
 ### The Target Variable
 
@@ -99,7 +103,7 @@ It showed a harrowing picture for the opposition Labour party. A third of the se
 
 By contrast, the Conservatives were set to lose very few safe seats, and they were still competitive in most seats that had previously been marginals.
 
-##### The list of KPIs used as features in this project
+**The list of KPIs used as features in this project
 
 ![Sankey](https://github.com/calbal91/project-understanding-elections/blob/master/Images/sankey.png)
 
@@ -107,5 +111,16 @@ By contrast, the Conservatives were set to lose very few safe seats, and they we
 
 ### Permutation Importance
 
+The concept of permutation importance is very intuitive:
+
+* Suppose we have a model, with a given loss function (for example, accuracy) of x
+* Now, take a single column in the feature set, and shuffle the values for each of the datapoints
+* Re-calculate the accuracy using this new dataset with the shuffled column
+* Note how much the model’s accuracy suffered from this shuffling. This loss in accuracy is the ‘permutation importance’ of that feature
+* Return the column to its un-shuffled state, and move onto the next feature — shuffling its values, and calculating how much the model’s accuracy falls
+
+This procedure breaks the relationship between each feature and the target, thus the drop in accuracy is indicative of how much the model depends on that feature.
+
 
 ## Conclusion
+
